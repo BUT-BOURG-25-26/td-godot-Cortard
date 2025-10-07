@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bejqxq3mkdk0x"]
+
+[ext_resource type="Material" uid="uid://bwfk3uuwgb556" path="res://Materials/M_Ennemy.tres" id="1_xpdnx"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_h0oj7"]
+
+[node name="Ennemy" type="Node3D"]
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+material_override = ExtResource("1_xpdnx")
+use_collision = true
+mesh = SubResource("BoxMesh_h0oj7")

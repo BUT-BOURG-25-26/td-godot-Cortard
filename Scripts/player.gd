@@ -11,8 +11,7 @@ func _ready() -> void:
 
 func _process(delta:float) -> void:
 	if Input.is_action_just_pressed("damage_player"):
-		health -= 1
-		healthbar.update(health)
+		heal(-1)
 
 func _physics_process(delta: float) -> void:
 	read_move_inputs()
@@ -26,3 +25,15 @@ func read_move_inputs():
 	move_inputs.y = Input.get_action_strength("move_backward") - Input.get_action_strength("move_forward")
 	move_inputs = move_inputs.normalized()
 	return
+
+func heal(value: float) :
+	health += value
+	if health <= 0 :
+		_on_death()
+		return
+	healthbar.update(health)
+	return
+
+func _on_death() -> void:
+	var current_scene = get_tree().current_scene
+	get_tree().reload_current_scene()

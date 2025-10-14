@@ -1,4 +1,4 @@
-extends Node3D
+extends Node
 
 var vfx_impact: PackedScene
 
@@ -21,6 +21,7 @@ func _input(event: InputEvent) -> void:
 			
 			if result:
 				var collision_point = result.position
-				var vfx_instance = vfx_impact.instantiate()
+				var vfx_instance: VFX = vfx_impact.instantiate()
 				get_tree().current_scene.add_child(vfx_instance)
 				vfx_instance.global_transform.origin = collision_point
+				vfx_instance.emit()

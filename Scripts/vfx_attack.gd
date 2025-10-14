@@ -1,4 +1,4 @@
-extends Area3D 
+class_name VFX extends Area3D 
 
 @onready var flash = $Flash
 @onready var sparks = $Sparks

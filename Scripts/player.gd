@@ -60,4 +60,5 @@ func addKillCount(nb: int) :
 		label.text = "Kills : %d" % killCounter
 
 func _on_death() -> void:
+	queue_free()
 	get_tree().change_scene_to_file(gameOver)

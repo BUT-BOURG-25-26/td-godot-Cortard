@@ -119,5 +119,5 @@ libraries = {
 &"": SubResource("AnimationLibrary_fkybt")
 }
 
-[node name="AttackCapacity" type="Node3D" parent="."]
+[node name="AttackCapacity" type="Node" parent="."]
 script = ExtResource("4_vgqql")

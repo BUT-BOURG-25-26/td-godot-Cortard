@@ -13,3 +13,9 @@ func emit():
 
 func _on_shockwave_finished() -> void:
 	queue_free()
+
+func _on_body_entered(body: Node3D) -> void:
+	if body is Ennemy:
+		var ennemy: Ennemy = body
+		ennemy.kill()
+		queue_free()

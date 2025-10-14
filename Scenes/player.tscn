@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://bw0dhumjpcqmi"]
+[gd_scene load_steps=12 format=3 uid="uid://bw0dhumjpcqmi"]
 
 [ext_resource type="Script" uid="uid://gtney2ofwoov" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Material" uid="uid://b33q5gc7fqod0" path="res://Materials/M_Player.tres" id="1_v0iea"]
 [ext_resource type="Script" uid="uid://ctgjgv6de0fyo" path="res://Scripts/health_bar.gd" id="3_6t5aa"]
+[ext_resource type="Script" uid="uid://bqr8g6ofx4cjs" path="res://Scripts/Attack_capacity.gd" id="4_vgqql"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v0iea"]
 
@@ -77,6 +78,9 @@ _data = {
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
 script = ExtResource("1_cvnsp")
 
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.832061, 0.554685, 0, -0.554685, 0.832061, 0, 3.12405, 2.0575)
+
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 material_override = ExtResource("1_v0iea")
@@ -115,3 +119,6 @@ texture = SubResource("ViewportTexture_cvnsp")
 libraries = {
 &"": SubResource("AnimationLibrary_fkybt")
 }
+
+[node name="AttackCapacity" type="Node3D" parent="."]
+script = ExtResource("4_vgqql")

@@ -30,9 +30,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0431051, 0.254399, 8.21429
 [node name="Ennemy" parent="." instance=ExtResource("2_tr2i4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.62813, 0)
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.832061, 0.554685, 0, -0.554685, 0.832061, 0, 3.12405, 10.9635)
-
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 
 [node name="Ground" type="StaticBody3D" parent="."]

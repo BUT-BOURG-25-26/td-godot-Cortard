@@ -4,6 +4,8 @@ class_name Ennemy extends RigidBody3D
 @export var max_speed: float = 5.0
 @export var acceleration: float = 20.0
 
+var myself: PackedScene
+
 var player : Player
 
 var damageTimer : Timer
@@ -15,6 +17,7 @@ func _ready() -> void:
 	damageTimer = $DamageTimer
 	canDoInstantCollisionDamage = true
 	collisionDamageTimer = $CollisionDamageTimer
+	myself = preload("res://Scenes/Ennemy.tscn")
 	return
 
 func _physics_process(delta: float) -> void:
@@ -49,3 +52,15 @@ func _on_damage_timer_timeout() -> void:
 
 func _on_collision_damage_timer_timeout() -> void:
 	canDoInstantCollisionDamage = true
+
+func spawn_new(position: Vector3) -> Ennemy:
+	var new_enemy = myself.instantiate()
+	get_tree().current_scene.add_child(new_enemy)
+	new_enemy.global_transform.origin = position
+	return new_enemy
+	
+func kill():
+	queue_free()
+	if player :
+		player.addKillCount(1)
+	spawn_new(Vector3(0, 3, 0))

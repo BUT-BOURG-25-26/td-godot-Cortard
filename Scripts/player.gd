@@ -1,7 +1,13 @@
 class_name Player extends Node3D
 var healthbar
+
 @export var move_speed:float = 5
 @export var health: int = 3
+
+var killCounter: int = 0
+func addKillCount(nb: int) :
+	killCounter += nb
+	print(killCounter)
 
 var move_inputs: Vector2
 

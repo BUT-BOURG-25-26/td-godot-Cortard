@@ -22,6 +22,7 @@ func _physics_process(delta: float) -> void:
 		return
 
 	var to_player = player.global_position - global_position
+	to_player.y = 0
 	var direction = to_player.normalized()
 
 	var desired_velocity = direction * max_speed

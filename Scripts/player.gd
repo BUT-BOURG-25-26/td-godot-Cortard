@@ -1,18 +1,17 @@
 class_name Player extends Node3D
 var healthbar
+var label
 
 @export var move_speed:float = 5
 @export var health: int = 3
 
 var killCounter: int = 0
-func addKillCount(nb: int) :
-	killCounter += nb
-	print(killCounter)
 
 var move_inputs: Vector2
 
 func _ready() -> void:
 	healthbar = $SubViewport/HealthBar
+	label = $"../UI/nbKills"
 	healthbar.max_value = health
 
 func _process(delta:float) -> void:
@@ -40,6 +39,10 @@ func heal(value: float) :
 	healthbar.update(health)
 	return
 
+func addKillCount(nb: int) :
+	killCounter += nb
+	if label :
+		label.text = "Kills : %d" % killCounter
+
 func _on_death() -> void:
-	var current_scene = get_tree().current_scene
-	get_tree().reload_current_scene()
+	get_tree().change_scene_to_file("res://Scenes/GameOver.tscn")
